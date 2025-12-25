@@ -1,19 +1,44 @@
-# CanvasCart
-An Artwork storefront project for artists to feature their digital, traditional and other artworks. 
+# 🎨 CanvasCart
 
-# React + Vite
+Hey there! 👋 This is **CanvasCart**, a digital artwork storefront I built to explore and learn React development. It's a simulated e-commerce platform where you can check out different digital artworks, add them to a customized cart, and walk through a complete checkout experience.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## 🚀 Built With
+- **React.js** (Frontend library)
+- **Vite** (Super fast build tool!)
+- **CSS3** (Styled from scratch for that personal touch!)
 
-Currently, two official plugins are available:
+## 🛠️ Features
+- **Art Gallery**: Browse through a curated collection of digital art.
+- **Shopping Cart**: Real-time updates as you add or remove items.
+- **Checkout Flow**: A smooth multi-step process (Shipping -> Payment -> Confirmation).
+- **Responsive Design**: Works great on my laptop and phone.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 💻 How to Run this Project
 
-## React Compiler
+Want to try it out on your own machine? Follow these simple steps:
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+1. **Clone the repository:**
+   ```bash
+   git clone https://github.com/nandkumar-here/CanvasCart.git
+   ```
 
-## Expanding the ESLint configuration
+2. **Go into the project folder:**
+   ```bash
+   cd CanvasCart
+   ```
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+3. **Install the necessary packages:**
+   ```bash
+   npm install
+   ```
+
+4. **Fire up the dev server:**
+   ```bash
+   npm run dev
+   ```
+
+5. **Open it up:**
+   Click the link in your terminal (usually `http://localhost:5173/`) to view the app!
+
+---
+*Thanks for checking out my project! I'm a 2nd Year Engineering Student passionate about web dev. Feel free to leave a star ⭐️ if you like it!*
