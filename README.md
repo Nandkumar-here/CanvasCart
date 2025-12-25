@@ -1,3 +1,6 @@
+# CanvasCart
+An Artwork storefront project for artists to feature their digital, traditional and other artworks. 
+
 # React + Vite
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
