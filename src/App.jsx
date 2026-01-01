@@ -1,19 +1,22 @@
 import { BrowserRouter, Routes, Route, Outlet } from 'react-router-dom';
 import Navbar from './components/Navbar';
-import Gallery from './pages/Gallery';
 import Home from './pages/Home';
+import Gallery from './pages/Gallery';
 import Contact from './pages/Contact';
 import Cart from './pages/Cart';
 import Checkout from './pages/Checkout';
 import Success from './pages/Success';
+import Notification from './components/Notification';
+import './App.css';
 
-// Layout component to wrap pages
+// Layout component includes the Navbar and the main content area
 const Layout = () => (
   <>
     <Navbar />
     <main className="container">
       <Outlet />
     </main>
+    <Notification />
   </>
 );
 

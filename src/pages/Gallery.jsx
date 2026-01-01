@@ -1,44 +1,33 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { artworks } from '../data/artworks';
+import { addToCart } from '../utils/storage';
 
 const Gallery = () => {
     const [filter, setFilter] = useState('All');
 
-    // Filter artworks based on category
+    // Filter logic: show all items or specific category
     const filteredArtworks = filter === 'All'
         ? artworks
         : artworks.filter(art => art.category === filter);
 
-    // Helper to add item to Cart in localStorage
-    const addToCart = (artwork) => {
-        const existingCart = JSON.parse(localStorage.getItem('cart')) || [];
-
-        // Check if item already exists
-        const existingItem = existingCart.find(item => item.id === artwork.id);
-
-        let newCart;
-        if (existingItem) {
-            newCart = existingCart.map(item =>
-                item.id === artwork.id
-                    ? { ...item, quantity: item.quantity + 1 }
-                    : item
-            );
-        } else {
-            newCart = [...existingCart, { id: artwork.id, quantity: 1 }];
-        }
-
-        localStorage.setItem('cart', JSON.stringify(newCart));
-        alert(`${artwork.title} added to cart!`);
+    // Handle user interaction
+    const handleAddToCart = (artwork) => {
+        addToCart(artwork);
+        // Trigger custom notification instead of alert
+        window.dispatchEvent(new CustomEvent('show-notification', {
+            detail: { message: `${artwork.title} added to cart!` }
+        }));
     };
 
     return (
         <div>
-            <div className="page-header" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginTop: '2rem' }}>
+            {/* Header and Filter */}
+            <div className="gallery-header">
                 <h1 className="page-title">Gallery</h1>
                 <select
+                    className="category-select"
                     value={filter}
                     onChange={(e) => setFilter(e.target.value)}
-                    style={{ padding: '0.5rem', fontSize: '1rem' }}
                 >
                     <option value="All">All Categories</option>
                     <option value="Digital">Digital</option>
@@ -47,24 +36,22 @@ const Gallery = () => {
                 </select>
             </div>
 
+            {/* Artworks Grid */}
             <div className="grid">
                 {filteredArtworks.map(art => (
-                    <div key={art.id} className="artwork-card" style={{ border: '1px solid #ddd', padding: '1rem', borderRadius: '4px' }}>
+                    <div key={art.id} className="artwork-card">
                         <div
-                            style={{
-                                height: '250px',
-                                backgroundColor: '#eee',
-                                backgroundImage: `url(${art.image})`,
-                                backgroundSize: 'cover',
-                                backgroundPosition: 'center',
-                                borderRadius: '2px',
-                                marginBottom: '1rem'
-                            }}
+                            className="artwork-image"
+                            style={{ backgroundImage: `url(${art.image})` }}
                         />
-                        <h3>{art.title}</h3>
-                        <p style={{ color: '#666', fontSize: '0.9rem' }}>{art.artist}</p>
-                        <p style={{ fontWeight: 'bold', margin: '0.5rem 0' }}>${art.price}</p>
-                        <button className="btn" onClick={() => addToCart(art)}>Add to Cart</button>
+                        <div className="artwork-details">
+                            <h3>{art.title}</h3>
+                            <p className="artist-name">{art.artist}</p>
+                            <p className="artwork-price">${art.price}</p>
+                            <button className="btn" onClick={() => handleAddToCart(art)}>
+                                Add to Cart
+                            </button>
+                        </div>
                     </div>
                 ))}
             </div>

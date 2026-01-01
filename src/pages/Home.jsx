@@ -9,6 +9,7 @@ const Home = () => {
                 Discover the finest collection of digital and traditional art.
                 From masterpiece to marketplace.
             </p>
+
             <Link to="/gallery" className="btn">
                 Shop Now
             </Link>

@@ -2,12 +2,13 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 const Navbar = () => {
-    // For now, static layout to verify structure.
-
     return (
         <nav className="navbar">
             <div className="container nav-content">
+                {/* Logo */}
                 <Link to="/" className="logo">CANVASCART</Link>
+
+                {/* Navigation Links */}
                 <ul className="nav-links">
                     <li><Link to="/" className="nav-link">Home</Link></li>
                     <li><Link to="/gallery" className="nav-link">Gallery</Link></li>
